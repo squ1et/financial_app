@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <div class="nav-left">
+        <h1>Financial App</h1>
+    </div>
+    <div class="nav-right">
+        <a href="{% url 'category_new' %}"><button>Add</button></a>
+    </div>
+
+</header>
+
+{% for category in category_list %}
+    <div class="category-entry">
+        <h2>
+            {{ category.title }} : {{ category.body }}
+            <a href="{% url 'category_detail' category.pk %}"><button class="edit-categoty">Edit</button></a>
+            <a href="{% url 'category_delete' category.pk %}"><button class="delete-categoty">Delete</button></a>
+        </h2>
+    </div>
+{% endfor %}
+{% endblock content %}
