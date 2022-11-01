@@ -6,8 +6,25 @@
 </head>
 <body>
     <div>
-        {% block content %}
-        {% endblock content %}
+        <header>
+            <div class="nav-left">
+                <a href="{% url 'home' %}"><h1>FinApp</h1></a>
+            </div>
+            <div class="nav-right">
+                <a href="{% url 'category_new' %}"><button>Add</button></a>
+            </div>
+        </header>
+        {% if user.is_authenticated %}
+            <p>{{ user.username }}</p>
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+        {% else %}
+            <a href="{% url 'login' %}">Log In</a><br>
+            <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
     </div>
 </body>
 </html>

@@ -1,16 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header>
-    <div class="nav-left">
-        <h1>Financial App</h1>
-    </div>
-    <div class="nav-right">
-        <a href="{% url 'category_new' %}"><button>Add</button></a>
-    </div>
-
-</header>
-
 {% for category in category_list %}
     <div class="category-entry">
         <h2>
